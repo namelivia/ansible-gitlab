@@ -30,15 +30,15 @@
     restart_policy: "always"
     log_driver: "awslogs"
     log_options:
-        awslogs-region: "{{cloudwatch_region}}"
-        awslogs-group: "{{cloudwatch_log_group}}"
-        awslogs-stream: "{{application_name}}"
+      awslogs-region: "{{ cloudwatch_region }}"
+      awslogs-group: "{{ cloudwatch_log_group }}"
+      awslogs-stream: "{{ application_name }}"
     exposed_ports:
       - "80"
     volumes:
-        - "{{ hostvars[inventory_hostname].working_directory }}{{ application_name }}/files/config:/etc/gitlab"
-        - "{{ hostvars[inventory_hostname].working_directory }}{{ application_name }}/files/logs:/var/log/gitlab"
-        - "{{ hostvars[inventory_hostname].working_directory }}{{ application_name }}/files/data:/var/opt/gitlab"
+      - "{{ hostvars[inventory_hostname].working_directory }}{{ application_name }}/files/config:/etc/gitlab"
+      - "{{ hostvars[inventory_hostname].working_directory }}{{ application_name }}/files/logs:/var/log/gitlab"
+      - "{{ hostvars[inventory_hostname].working_directory }}{{ application_name }}/files/data:/var/opt/gitlab"
     env:
       VIRTUAL_HOST: "{{ domain_name }}"
       LETSENCRYPT_HOST: "{{ domain_name }}"
@@ -49,6 +49,7 @@
     name: namelivia.backups
     tasks_from: setup-file-backups
 
-- include_role:
+- name: Setup S3 backups
+  include_role:
     name: namelivia.backups
     tasks_from: setup-s3-backups
