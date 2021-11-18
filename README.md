@@ -11,7 +11,7 @@ collections:
   - community.docker
 
 roles:
-  - src: https://github.com/namelivia/namelivia.gitlab
+  - src: https://github.com/namelivia/ansible-gitlab
 ```
 
 ## Required variables

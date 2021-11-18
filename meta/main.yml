@@ -1,5 +1,5 @@
 galaxy_info:
-  role_name: namelivia.gitlab
+  role_name: ansible-gitlab
   author: José Ignacio Amelivia Santiago <jignacio.amelivia@gmail.com>
   description: Ansible role I use to install and configure gitlab
   license: GPLv2
