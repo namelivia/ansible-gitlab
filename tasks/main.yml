@@ -12,16 +12,19 @@
   file:
     path: "{{ hostvars[inventory_hostname].working_directory }}{{ application_name }}/files/data"
     state: directory
+    mode: 07500
 
 - name: Create the logs directory
   file:
     path: "{{ hostvars[inventory_hostname].working_directory }}{{ application_name }}/files/logs"
     state: directory
+    mode: 07500
 
 - name: Create the config directory
   file:
     path: "{{ hostvars[inventory_hostname].working_directory }}{{ application_name }}/files/config"
     state: directory
+    mode: 07500
 
 - name: Create app container
   docker_container:
