@@ -31,6 +31,7 @@
     name: "gitlab-app"
     image: "gitlab/gitlab-ce:latest"
     restart_policy: "always"
+    cleanup: true
     log_driver: "awslogs"
     log_options:
       awslogs-region: "{{ cloudwatch_region }}"
